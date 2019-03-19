@@ -1,5 +1,2 @@
-powershell ffmpeg -stream_loop -1 -re -i video.mp4 -bsf:v h264_mp4toannexb ^
--c copy -f mpegts http://localhost:8080/publish/video1 ^
--c copy -f mpegts http://localhost:8080/publish/video2 ^
--c copy -f mpegts http://localhost:8080/publish/video3 ^
--c copy -f mpegts http://localhost:8080/publish/video4
+start powershell ffmpeg -v panic -r 24 -f h264 -re -i video1.h264 -c copy -bsf:v 'filter_units=pass_types=1-5' -f mpegts http://localhost:8080/publish/video1
+start powershell ffmpeg -v panic -r 24 -f h264 -re -i video2.h264 -c copy -bsf:v 'filter_units=pass_types=1-5' -f mpegts http://localhost:8080/publish/video2
