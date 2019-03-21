@@ -32,5 +32,6 @@ VOLUME ["/var/log/nginx"]
 
 WORKDIR /etc/nginx
 COPY nginx.conf nginx_cors.conf /etc/nginx/
+EXPOSE 8080
 
 CMD ["nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]

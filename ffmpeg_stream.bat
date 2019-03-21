@@ -1,2 +1,1 @@
-start powershell ffmpeg -r 24 -f h264 -re -i video1.h264 -c copy -f mpegts http://localhost:8080/publish/video1
-start powershell ffmpeg -r 24 -f h264 -re -i video2.h264 -c copy -f mpegts http://localhost:8080/publish/video2
+start powershell ffmpeg -r 24 -f h264 -re -i video1.h264 -c copy -f mpegts http://localhost:8080/publish/stream
