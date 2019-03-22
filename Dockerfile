@@ -1,13 +1,14 @@
 FROM alpine:latest
 ENV NGINX_VERSION nginx-1.15.9
-RUN apk --update add git openssl-dev pcre-dev zlib-dev wget build-base && \
-    git clone https://github.com/arut/nginx-ts-module.git && \
+COPY nginx-ts-module-master /nginx-ts-module
+RUN apk --update add openssl-dev pcre-dev zlib-dev wget build-base && \
     mkdir -p /tmp/src && \
     cd /tmp/src && \
     wget http://nginx.org/download/${NGINX_VERSION}.tar.gz && \
     tar -zxvf ${NGINX_VERSION}.tar.gz && \
     cd /tmp/src/${NGINX_VERSION} && \
     ./configure \
+        --with-debug \
         --with-http_ssl_module \
         --with-http_gzip_static_module \
         --prefix=/etc/nginx \
